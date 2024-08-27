@@ -1,5 +1,17 @@
 #include "stats.h"
+#include <algorithm>
+#include <numeric> 
+using namespace Statistics;
 
-Stats Statistics::ComputeStatistics(const std::vector<___>& ) {
-    //Implement statistics here
+Stats Statistics::ComputeStatistics(const std::vector<float>& v ) 
+{
+ Stats obj { NAN, NAN, NAN };
+ float sum = static_cast<float>(std::accumulate(v.begin(), v.end(), 0.0));
+ if (!v.empty())
+ {
+	 obj.average = sum / v.size();
+	 obj.max = *std::max_element(v.begin(), v.end());
+	 obj.min = *std::min_element(v.begin(), v.end());
+ }
+return obj;
 }
