@@ -15,9 +15,9 @@ TEST(Statistics, AverageNaNForEmpty)
 {
     std::vector<float> f = {};
     auto computedStats = Statistics::ComputeStatistics(f);
-    EXPECT_TRUE(isnan(computedStats.average));
-    EXPECT_TRUE(isnan(computedStats.min));
-    EXPECT_TRUE(isnan(computedStats.max));
+    EXPECT_TRUE(std::isnan(computedStats.average));
+    EXPECT_TRUE(std::isnan(computedStats.min));
+    EXPECT_TRUE(std::isnan(computedStats.max));
 
     //NAN (not-a-number), as defined in math.h
     
